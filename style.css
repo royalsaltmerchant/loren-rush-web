@@ -1,0 +1,435 @@
+:root {
+  color-scheme: light;
+  --paper: #f6f1e8;
+  --ink: #171512;
+  --muted: #6d675f;
+  --line: rgba(23, 21, 18, 0.18);
+  --accent: #7d1f1a;
+  --accent-dark: #4b1714;
+  --panel: #fffaf1;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+main {
+  min-height: 100vh;
+}
+
+.hero {
+  display: grid;
+  min-height: 78svh;
+  grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
+  border-bottom: 1px solid var(--line);
+}
+
+.hero__image {
+  position: relative;
+  min-height: 440px;
+  overflow: hidden;
+  background:
+    linear-gradient(rgba(23, 21, 18, 0.08), rgba(23, 21, 18, 0.22)),
+    #29241f;
+}
+
+.hero__image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.8) contrast(1.04);
+  transform: scale(1.03);
+  animation: imageSettle 900ms ease-out forwards;
+}
+
+.hero__image img.is-missing {
+  display: none;
+}
+
+.hero__fallback {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: rgba(246, 241, 232, 0.78);
+  font-size: clamp(3rem, 10vw, 8rem);
+  letter-spacing: 0;
+  opacity: 0;
+}
+
+.hero__image img.is-missing + .hero__fallback {
+  opacity: 1;
+}
+
+.hero__content {
+  align-self: end;
+  padding: clamp(2rem, 5vw, 5rem);
+  animation: riseIn 700ms ease-out both;
+}
+
+.kicker {
+  margin: 0 0 1rem;
+  color: var(--accent);
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+h1,
+h2 {
+  margin: 0;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
+h1 {
+  max-width: 7ch;
+  font-size: clamp(4.5rem, 10vw, 9.5rem);
+  line-height: 0.86;
+}
+
+.dates {
+  margin: 1.5rem 0 0;
+  color: var(--muted);
+  font-size: clamp(1.1rem, 2vw, 1.45rem);
+}
+
+.drive-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.9rem;
+  margin-top: 2rem;
+  padding: 0 1.2rem;
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  color: var(--panel);
+  background: var(--accent);
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 0.92rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background 180ms ease, transform 180ms ease;
+}
+
+.drive-link:hover,
+.drive-link:focus-visible {
+  background: var(--accent-dark);
+  outline: none;
+  transform: translateY(-1px);
+}
+
+.intro {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: clamp(2rem, 6vw, 5.5rem) clamp(1.25rem, 4vw, 3rem);
+}
+
+.intro p {
+  max-width: 760px;
+  margin: 0;
+  font-size: clamp(1.7rem, 4vw, 3.35rem);
+  line-height: 1.08;
+}
+
+.resources,
+.audio-section {
+  display: grid;
+  grid-template-columns: minmax(190px, 0.32fr) minmax(0, 1fr);
+  gap: clamp(2rem, 5vw, 5rem);
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 clamp(1.25rem, 4vw, 3rem) clamp(3rem, 8vw, 7rem);
+}
+
+.audio-section {
+  padding-top: clamp(1rem, 3vw, 2rem);
+}
+
+.section-heading {
+  position: sticky;
+  top: 2rem;
+  align-self: start;
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 3.6rem);
+}
+
+.resource-list {
+  border-top: 1px solid var(--line);
+}
+
+.resource {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1.5rem;
+  align-items: center;
+  min-height: 92px;
+  padding: 1.15rem 0;
+  border-bottom: 1px solid var(--line);
+  color: inherit;
+  text-decoration: none;
+  transform: translateY(10px);
+  opacity: 0;
+  animation: riseIn 560ms ease-out forwards;
+  transition: color 180ms ease, padding-left 180ms ease, background 180ms ease;
+}
+
+.resource:hover,
+.resource:focus-visible {
+  color: var(--accent);
+  padding-left: 0.75rem;
+  outline: none;
+}
+
+.resource__title {
+  display: block;
+  font-size: clamp(1.25rem, 2.3vw, 2rem);
+  line-height: 1.08;
+}
+
+.resource__note {
+  display: block;
+  margin-top: 0.35rem;
+  color: var(--muted);
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.resource__arrow {
+  width: 2.8rem;
+  height: 2.8rem;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 1.4rem;
+  transition: transform 180ms ease, background 180ms ease, color 180ms ease;
+}
+
+.resource:hover .resource__arrow,
+.resource:focus-visible .resource__arrow {
+  transform: translateX(4px);
+  background: var(--accent);
+  color: var(--panel);
+}
+
+.resource.is-placeholder {
+  cursor: default;
+}
+
+.resource.is-placeholder:hover,
+.resource.is-placeholder:focus-visible {
+  color: inherit;
+  padding-left: 0;
+}
+
+.resource.is-placeholder .resource__arrow {
+  color: var(--muted);
+}
+
+.audio-panel {
+  border-top: 1px solid var(--line);
+}
+
+.audio-panel__header {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: center;
+  padding: 0 0 1rem;
+  color: var(--muted);
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.audio-panel__header p {
+  margin: 0;
+}
+
+.play-all-button,
+.play-pause-button {
+  border: 1px solid var(--accent);
+  color: var(--panel);
+  background: var(--accent);
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 180ms ease, transform 180ms ease;
+}
+
+.play-all-button:hover,
+.play-all-button:focus-visible,
+.play-pause-button:hover,
+.play-pause-button:focus-visible {
+  background: var(--accent-dark);
+  outline: none;
+}
+
+.play-all-button {
+  min-height: 2.55rem;
+  padding: 0 1rem;
+  border-radius: 999px;
+}
+
+.audio-player {
+  display: grid;
+  grid-template-columns: 3rem minmax(0, 1fr) auto;
+  gap: 1rem;
+  align-items: center;
+  min-height: 92px;
+  padding: 1.1rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.play-pause-button {
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 999px;
+  font-size: 1rem;
+}
+
+.audio-title {
+  margin: 0;
+  font-size: clamp(1.1rem, 2vw, 1.55rem);
+  line-height: 1.15;
+}
+
+.audio-meta,
+.audio-duration {
+  color: var(--muted);
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 0.86rem;
+}
+
+.audio-meta {
+  margin: 0.35rem 0 0;
+}
+
+.audio-duration {
+  min-width: 4.5rem;
+  text-align: right;
+}
+
+.progress-bar {
+  position: relative;
+  height: 0.45rem;
+  margin-top: 0.8rem;
+  border-radius: 999px;
+  background: rgba(23, 21, 18, 0.16);
+  cursor: pointer;
+}
+
+.progress {
+  width: 0;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--accent);
+}
+
+.time-tooltip {
+  position: absolute;
+  bottom: calc(100% + 0.45rem);
+  display: none;
+  transform: translateX(-50%);
+  padding: 0.18rem 0.36rem;
+  border-radius: 4px;
+  background: var(--ink);
+  color: var(--panel);
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 0.72rem;
+  white-space: nowrap;
+}
+
+.download-link {
+  color: var(--accent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+
+@keyframes riseIn {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes imageSettle {
+  from {
+    opacity: 0;
+    transform: scale(1.08);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1.03);
+  }
+}
+
+@media (max-width: 760px) {
+  .hero {
+    min-height: auto;
+    grid-template-columns: 1fr;
+  }
+
+  .hero__image {
+    min-height: 56svh;
+  }
+
+  .hero__content {
+    padding: 2rem 1.25rem 2.4rem;
+  }
+
+  h1 {
+    max-width: 8ch;
+    font-size: clamp(4.1rem, 18vw, 6.5rem);
+  }
+
+  .resources,
+  .audio-section {
+    grid-template-columns: 1fr;
+    gap: 1.4rem;
+  }
+
+  .section-heading {
+    position: static;
+  }
+
+  .resource {
+    grid-template-columns: 1fr 2.4rem;
+    min-height: 84px;
+  }
+
+  .resource__arrow {
+    width: 2.4rem;
+    height: 2.4rem;
+  }
+
+  .audio-player {
+    grid-template-columns: 2.7rem minmax(0, 1fr);
+  }
+
+  .audio-duration {
+    grid-column: 2;
+    min-width: 0;
+    text-align: left;
+  }
+}

@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Loren Lee Rush</title>
+    <meta
+      name="description"
+      content="A simple archive page for Loren Lee Rush with links to photographs, biography, works, scores, audio, and interviews."
+    >
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <main>
+      <section class="hero" aria-labelledby="page-title">
+        <div class="hero__image">
+          <img
+            src="assets/loren-at-upright.jpeg"
+            alt="Loren Lee Rush playing piano"
+            data-photo
+          >
+          <div class="hero__fallback" aria-hidden="true">
+            <span>Photo</span>
+          </div>
+        </div>
+        <div class="hero__content">
+          <p class="kicker">Composer archive</p>
+          <h1 id="page-title">Loren Lee Rush</h1>
+          <p class="dates">August 23, 1935 - February 10, 2024</p>
+          <a class="drive-link" href="#listen">Listen</a>
+        </div>
+      </section>
+
+      <section class="intro" aria-label="About this archive">
+        <p>
+          Selected materials for Loren Lee Rush, gathered in one place for listening,
+          reading, and reference.
+        </p>
+      </section>
+
+      <section class="resources" aria-labelledby="resources-title">
+        <div class="section-heading">
+          <p class="kicker">Archive</p>
+          <h2 id="resources-title">Materials</h2>
+        </div>
+        <div class="resource-list" data-resource-list></div>
+      </section>
+
+      <section class="audio-section" id="listen" aria-labelledby="audio-title">
+        <div class="section-heading">
+          <p class="kicker">Audio</p>
+          <h2 id="audio-title">Listen</h2>
+        </div>
+        <div class="audio-panel">
+          <div class="audio-panel__header">
+            <p>Selected recordings</p>
+            <button class="play-all-button" type="button">Play all</button>
+          </div>
+          <div class="audio-list" data-audio-list></div>
+        </div>
+      </section>
+    </main>
+
+    <script src="main.js"></script>
+  </body>
+</html>
