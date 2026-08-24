@@ -3,11 +3,6 @@ const driveFolderUrl =
 
 const resources = [
   {
-    title: "Works list",
-    note: "Catalog of compositions and related materials.",
-    url: "documents/loren-works-list-annotated.pdf",
-  },
-  {
     title: "6 Piano Preludes (Omaggio a Ungaretti)",
     note: "Drive folder for the piano solo materials.",
     url: "https://drive.google.com/drive/folders/12_ePLcTM1rlTlV5JaenJdQy_sdFNafSS",
@@ -21,6 +16,117 @@ const resources = [
     title: "Full Drive folder",
     note: "Original shared Google Drive archive.",
     url: driveFolderUrl,
+  },
+];
+
+const works = [
+  {
+    title: "Five Kokinshiu Poems",
+    year: "1959",
+    forces: "Soprano, flute, clarinet, viola, and harp",
+    note: "6 min. Formerly Five Japanese Poems. Nicola di Lorenzo Prize, 1959.",
+  },
+  {
+    title: "Serenade",
+    year: "1960",
+    forces: "Violin and viola",
+    note: "15 min. Five movements. New edition, 1997. Nicola di Lorenzo Prize, 1960.",
+  },
+  {
+    title: "String Quartet",
+    year: "1960-61",
+    forces: "String quartet",
+    note: "23 min. Prince Pierre of Monaco Musical Composition Award, 1971.",
+  },
+  {
+    title: "Mandala Music",
+    year: "1962",
+    forces: "Improvisation schema for three or more performers",
+    note: "Variable duration.",
+  },
+  {
+    title: "Piano Music 2",
+    year: "1962-63",
+    forces: "Two prepared pianos, bells, gongs, and cymbals",
+    note: "Variable duration.",
+  },
+  {
+    title: "Hexahedron",
+    year: "1962-63",
+    forces: "Piano",
+    note: "Variable duration.",
+  },
+  {
+    title: "Nexus 16",
+    year: "1964",
+    forces: "Chamber orchestra",
+    note: "13 min. Commissioned by the Fromm Music Foundation and Berkshire Music Center.",
+  },
+  {
+    title: "dans le sable",
+    year: "1967-68",
+    forces: "Soprano, speaker, four altos, and chamber orchestra",
+    note: "22 min. Orchestral version, 1970.",
+  },
+  {
+    title: "soft music, HARD MUSIC",
+    year: "1969-70",
+    forces: "Three amplified pianos",
+    note: "20+ min.",
+  },
+  {
+    title: "Oh, Susanna",
+    year: "1970",
+    forces: "Piano",
+    note: "9 min.",
+  },
+  {
+    title: "The Cloud Messenger",
+    year: "1966-71",
+    forces: "Orchestra",
+    note: "18 min.",
+  },
+  {
+    title: "A Little Traveling Music",
+    year: "1971-73",
+    forces: "Enhanced piano with computer-generated four-channel audio playback",
+    note: "10.5 min. Commissioned by Dwight Peltzer.",
+  },
+  {
+    title: "Dreaming Susanna",
+    year: "1973",
+    forces: "Electronically enhanced orchestra and six-channel audio playback",
+    note: "20 min. Fantasy on a Theme by Mozart. Commissioned by Niklaus Wyss and the San Francisco Symphony Orchestra.",
+  },
+  {
+    title: "Song and Dance",
+    year: "1975",
+    forces: "Amplified orchestra with computer-generated four-channel audio playback",
+    note: "24 min. Commissioned by Seiji Ozawa and the San Francisco Symphony Orchestra.",
+  },
+  {
+    title: "Preludes for the Enhanced Piano",
+    year: "1970s",
+    forces: "Enhanced piano",
+    note: "Mattina in seven-limit just intonation; Dolce declina il sole in five-limit just intonation.",
+  },
+  {
+    title: "Giorno d'un uomo",
+    year: "1996",
+    forces: "Violin and enhanced piano in seven-limit just intonation",
+    note: "Part I of IV. Mattina. Commissioned by Daniel Kobialka.",
+  },
+  {
+    title: "Omaggio a Giuseppe Ungaretti",
+    year: "1997",
+    forces: "Piano",
+    note: "14 min. Versions for enhanced piano in five-limit just intonation and equal tempered piano.",
+  },
+  {
+    title: "L'allegria",
+    year: "2002",
+    forces: "Baritone, violin, cello, and enhanced piano",
+    note: "35 min. Five movements. Commissioned by Thomas Buckner.",
   },
 ];
 
@@ -54,6 +160,7 @@ const interviewTrack = {
 };
 
 const list = document.querySelector("[data-resource-list]");
+const worksList = document.querySelector("[data-works-list]");
 const audioList = document.querySelector("[data-audio-list]");
 const interviewAudio = document.querySelector("[data-interview-audio]");
 
@@ -74,6 +181,21 @@ resources.forEach((resource, index) => {
   `;
 
   list.append(link);
+});
+
+works.forEach((work) => {
+  const item = document.createElement("article");
+  item.className = "work-item";
+  item.innerHTML = `
+    <time class="work-year">${work.year}</time>
+    <div>
+      <h3 class="work-title">${work.title}</h3>
+      <p class="work-forces">${work.forces}</p>
+      <p class="work-note">${work.note}</p>
+    </div>
+  `;
+
+  worksList.append(item);
 });
 
 const renderAudioPlayer = (track, container) => {
