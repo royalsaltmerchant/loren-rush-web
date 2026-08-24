@@ -217,11 +217,15 @@ const renderAudioPlayer = (track, container, options = {}) => {
     player.dataset.playlistPlayer = "true";
   }
 
+  const downloadLink = options.download === false
+    ? ""
+    : ` <a class="download-link" href="${track.src}" download>Download MP3</a>`;
+
   player.innerHTML = `
     <button class="play-pause-button" type="button" aria-label="Play ${track.title}" data-track-title="${track.title}">&gt;</button>
     <div>
       <h3 class="audio-title">${track.title}</h3>
-      <p class="audio-meta">${track.meta} <a class="download-link" href="${track.src}" download>Download MP3</a></p>
+      <p class="audio-meta">${track.meta}${downloadLink}</p>
       <div class="progress-bar" role="slider" aria-label="Seek ${track.title}" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" tabindex="0">
         <div class="progress"></div>
       </div>
@@ -234,7 +238,7 @@ const renderAudioPlayer = (track, container, options = {}) => {
 };
 
 tracks.forEach((track) => renderAudioPlayer(track, audioList, { playlist: true }));
-renderAudioPlayer(interviewTrack, interviewAudio);
+renderAudioPlayer(interviewTrack, interviewAudio, { download: false });
 
 const photo = document.querySelector("[data-photo]");
 
