@@ -136,7 +136,7 @@ h1 {
 .works-section,
 .interview-section {
   display: grid;
-  grid-template-columns: minmax(190px, 0.32fr) minmax(0, 1fr);
+  grid-template-columns: minmax(220px, 0.34fr) minmax(0, 1fr);
   gap: clamp(2rem, 5vw, 5rem);
   max-width: 1120px;
   margin: 0 auto;
@@ -280,7 +280,7 @@ h1 {
 .resources,
 .audio-section {
   display: grid;
-  grid-template-columns: minmax(190px, 0.32fr) minmax(0, 1fr);
+  grid-template-columns: minmax(220px, 0.34fr) minmax(0, 1fr);
   gap: clamp(2rem, 5vw, 5rem);
   max-width: 1120px;
   margin: 0 auto;
@@ -298,7 +298,8 @@ h1 {
 }
 
 h2 {
-  font-size: clamp(2rem, 4vw, 3.6rem);
+  font-size: clamp(1.8rem, 3.2vw, 3rem);
+  line-height: 1.02;
 }
 
 .resource-list {
