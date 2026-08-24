@@ -80,7 +80,7 @@ const renderAudioPlayer = (track, container) => {
   const player = document.createElement("article");
   player.className = "audio-player";
   player.innerHTML = `
-    <button class="play-pause-button" type="button" aria-label="Play ${track.title}">Play</button>
+    <button class="play-pause-button" type="button" aria-label="Play ${track.title}" data-track-title="${track.title}">&gt;</button>
     <div>
       <h3 class="audio-title">${track.title}</h3>
       <p class="audio-meta">${track.meta} <a class="download-link" href="${track.src}" download>Download MP3</a></p>
@@ -114,11 +114,16 @@ const formatTime = (seconds) => {
   return `${minutes}:${remaining}`;
 };
 
+const setButtonState = (button, isPlaying) => {
+  button.textContent = isPlaying ? "||" : ">";
+  button.setAttribute("aria-label", `${isPlaying ? "Pause" : "Play"} ${button.dataset.trackTitle}`);
+};
+
 const pauseOthers = (currentAudio) => {
   document.querySelectorAll(".audio-element").forEach((audio) => {
     if (audio !== currentAudio) {
       audio.pause();
-      audio.closest(".audio-player").querySelector(".play-pause-button").textContent = "Play";
+      setButtonState(audio.closest(".audio-player").querySelector(".play-pause-button"), false);
     }
   });
 };
@@ -132,7 +137,7 @@ const playAudioByIndex = (index) => {
 
   pauseOthers(audio);
   audio.play();
-  button.textContent = "Pause";
+  setButtonState(button, true);
 };
 
 audioPlayers.forEach((player, index) => {
@@ -150,10 +155,10 @@ audioPlayers.forEach((player, index) => {
     if (audio.paused) {
       pauseOthers(audio);
       audio.play();
-      button.textContent = "Pause";
+      setButtonState(button, true);
     } else {
       audio.pause();
-      button.textContent = "Play";
+      setButtonState(button, false);
     }
   });
 
@@ -171,7 +176,7 @@ audioPlayers.forEach((player, index) => {
 
   audio.addEventListener("ended", () => {
     audio.currentTime = 0;
-    button.textContent = "Play";
+    setButtonState(button, false);
     progress.style.width = "0";
     playAudioByIndex(index + 1);
   });
