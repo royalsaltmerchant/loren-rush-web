@@ -45,15 +45,17 @@ const tracks = [
     meta: "Orchestra recording",
     src: "media/the-cloud-messenger.mp3",
   },
-  {
-    title: "Loren Rush - Barney Childs interview, 2016",
-    meta: "Interview audio",
-    src: "media/loren-rush-barney-childs-interview-2016-audio-1.mp3",
-  },
 ];
+
+const interviewTrack = {
+  title: "Loren Rush - Barney Childs interview, 2016",
+  meta: "Interview audio",
+  src: "media/loren-rush-barney-childs-interview-2016-audio-1.mp3",
+};
 
 const list = document.querySelector("[data-resource-list]");
 const audioList = document.querySelector("[data-audio-list]");
+const interviewAudio = document.querySelector("[data-interview-audio]");
 
 resources.forEach((resource, index) => {
   const link = document.createElement("a");
@@ -74,7 +76,7 @@ resources.forEach((resource, index) => {
   list.append(link);
 });
 
-tracks.forEach((track) => {
+const renderAudioPlayer = (track, container) => {
   const player = document.createElement("article");
   player.className = "audio-player";
   player.innerHTML = `
@@ -90,8 +92,11 @@ tracks.forEach((track) => {
     <audio class="audio-element" preload="metadata" src="${track.src}"></audio>
   `;
 
-  audioList.append(player);
-});
+  container.append(player);
+};
+
+tracks.forEach((track) => renderAudioPlayer(track, audioList));
+renderAudioPlayer(interviewTrack, interviewAudio);
 
 const photo = document.querySelector("[data-photo]");
 

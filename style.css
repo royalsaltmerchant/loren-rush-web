@@ -198,17 +198,6 @@ h1 {
   line-height: 1.08;
 }
 
-.drive-link--secondary {
-  margin-top: 1.5rem;
-  color: var(--accent);
-  background: transparent;
-}
-
-.drive-link--secondary:hover,
-.drive-link--secondary:focus-visible {
-  color: var(--panel);
-}
-
 .resources,
 .audio-section {
   display: grid;
@@ -359,6 +348,14 @@ h2 {
   min-height: 92px;
   padding: 1.1rem 0;
   border-bottom: 1px solid var(--line);
+}
+
+.audio-list--single {
+  margin-top: 1.5rem;
+}
+
+.audio-list--single .audio-player {
+  border-top: 1px solid var(--line);
 }
 
 .play-pause-button {
