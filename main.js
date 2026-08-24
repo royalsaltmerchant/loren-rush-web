@@ -1,136 +1,160 @@
-const driveFolderUrl =
-  "https://drive.google.com/drive/folders/192hnJQZ0KXqQuud_xw9EzDqHjtDPhfjj";
-
-const resources = [
+const workGroups = [
   {
-    title: "6 Piano Preludes (Omaggio a Ungaretti)",
-    note: "Drive folder for the piano solo materials.",
-    url: "https://drive.google.com/drive/folders/12_ePLcTM1rlTlV5JaenJdQy_sdFNafSS",
+    heading: "Early Chamber Works",
+    items: [
+      {
+        title: "Five Kokinshiu Poems",
+        year: "1959",
+        forces: "Soprano, flute, clarinet, viola, and harp",
+        note: "6 min. Formerly Five Japanese Poems. Nicola di Lorenzo Prize, 1959.",
+      },
+      {
+        title: "Serenade",
+        year: "1960",
+        forces: "Violin and viola",
+        note: "15 min. Five movements. New edition, 1997. Nicola di Lorenzo Prize, 1960.",
+      },
+      {
+        title: "String Quartet",
+        year: "1960-61",
+        forces: "String quartet",
+        note: "23 min. Prince Pierre of Monaco Musical Composition Award, 1971.",
+      },
+      {
+        title: "Mandala Music",
+        year: "1962",
+        forces: "Improvisation schema for three or more performers",
+        note: "Variable duration.",
+      },
+      {
+        title: "Piano Music 2",
+        year: "1962-63",
+        forces: "Two prepared pianos, bells, gongs, and cymbals",
+        note: "Variable duration.",
+      },
+      {
+        title: "Hexahedron",
+        year: "1962-63",
+        forces: "Piano",
+        note: "Variable duration.",
+      },
+      {
+        title: "Nexus 16",
+        year: "1964",
+        forces: "Chamber orchestra",
+        note: "13 min. Commissioned by the Fromm Music Foundation and Berkshire Music Center.",
+      },
+    ],
   },
   {
-    title: "Orchestra scores",
-    note: "Score PDFs can be added here when available.",
-    url: "https://drive.google.com/drive/folders/1Fl2UlSuWMVozsqJ-XD139zBENuUQoOxP",
+    heading: "Orchestra, Amplification, And Tape",
+    items: [
+      {
+        title: "dans le sable",
+        year: "1967-68",
+        forces: "Soprano, speaker, four altos, and chamber orchestra",
+        note: "22 min. Orchestral version, 1970.",
+      },
+      {
+        title: "soft music, HARD MUSIC",
+        year: "1969-70",
+        forces: "Three amplified pianos",
+        note: "20+ min.",
+      },
+      {
+        title: "Oh, Susanna",
+        year: "1970",
+        forces: "Piano",
+        note: "9 min.",
+      },
+      {
+        title: "The Cloud Messenger",
+        year: "1966-71",
+        forces: "Orchestra",
+        note: "18 min.",
+      },
+      {
+        title: "A Little Traveling Music",
+        year: "1971-73",
+        forces: "Enhanced piano with computer-generated four-channel audio playback",
+        note: "10.5 min. Commissioned by Dwight Peltzer.",
+      },
+      {
+        title: "Dreaming Susanna",
+        year: "1973",
+        forces: "Electronically enhanced orchestra and six-channel audio playback",
+        note: "20 min. Fantasy on a Theme by Mozart. Commissioned by Niklaus Wyss and the San Francisco Symphony Orchestra.",
+      },
+      {
+        title: "Song and Dance",
+        year: "1975",
+        forces: "Amplified orchestra with computer-generated four-channel audio playback",
+        note: "24 min. Commissioned by Seiji Ozawa and the San Francisco Symphony Orchestra.",
+      },
+    ],
   },
   {
-    title: "Full Drive folder",
-    note: "Original shared Google Drive archive.",
-    url: driveFolderUrl,
-  },
-];
-
-const works = [
-  {
-    title: "Five Kokinshiu Poems",
-    year: "1959",
-    forces: "Soprano, flute, clarinet, viola, and harp",
-    note: "6 min. Formerly Five Japanese Poems. Nicola di Lorenzo Prize, 1959.",
-  },
-  {
-    title: "Serenade",
-    year: "1960",
-    forces: "Violin and viola",
-    note: "15 min. Five movements. New edition, 1997. Nicola di Lorenzo Prize, 1960.",
-  },
-  {
-    title: "String Quartet",
-    year: "1960-61",
-    forces: "String quartet",
-    note: "23 min. Prince Pierre of Monaco Musical Composition Award, 1971.",
-  },
-  {
-    title: "Mandala Music",
-    year: "1962",
-    forces: "Improvisation schema for three or more performers",
-    note: "Variable duration.",
-  },
-  {
-    title: "Piano Music 2",
-    year: "1962-63",
-    forces: "Two prepared pianos, bells, gongs, and cymbals",
-    note: "Variable duration.",
-  },
-  {
-    title: "Hexahedron",
-    year: "1962-63",
-    forces: "Piano",
-    note: "Variable duration.",
-  },
-  {
-    title: "Nexus 16",
-    year: "1964",
-    forces: "Chamber orchestra",
-    note: "13 min. Commissioned by the Fromm Music Foundation and Berkshire Music Center.",
-  },
-  {
-    title: "dans le sable",
-    year: "1967-68",
-    forces: "Soprano, speaker, four altos, and chamber orchestra",
-    note: "22 min. Orchestral version, 1970.",
-  },
-  {
-    title: "soft music, HARD MUSIC",
-    year: "1969-70",
-    forces: "Three amplified pianos",
-    note: "20+ min.",
-  },
-  {
-    title: "Oh, Susanna",
-    year: "1970",
-    forces: "Piano",
-    note: "9 min.",
-  },
-  {
-    title: "The Cloud Messenger",
-    year: "1966-71",
-    forces: "Orchestra",
-    note: "18 min.",
-  },
-  {
-    title: "A Little Traveling Music",
-    year: "1971-73",
-    forces: "Enhanced piano with computer-generated four-channel audio playback",
-    note: "10.5 min. Commissioned by Dwight Peltzer.",
-  },
-  {
-    title: "Dreaming Susanna",
-    year: "1973",
-    forces: "Electronically enhanced orchestra and six-channel audio playback",
-    note: "20 min. Fantasy on a Theme by Mozart. Commissioned by Niklaus Wyss and the San Francisco Symphony Orchestra.",
-  },
-  {
-    title: "Song and Dance",
-    year: "1975",
-    forces: "Amplified orchestra with computer-generated four-channel audio playback",
-    note: "24 min. Commissioned by Seiji Ozawa and the San Francisco Symphony Orchestra.",
-  },
-  {
-    title: "Preludes for the Enhanced Piano",
-    year: "1970s",
-    forces: "Enhanced piano",
-    note: "Mattina in seven-limit just intonation; Dolce declina il sole in five-limit just intonation.",
-  },
-  {
-    title: "Giorno d'un uomo",
-    year: "1996",
-    forces: "Violin and enhanced piano in seven-limit just intonation",
-    note: "Part I of IV. Mattina. Commissioned by Daniel Kobialka.",
-  },
-  {
-    title: "Omaggio a Giuseppe Ungaretti",
-    year: "1997",
-    forces: "Piano",
-    note: "14 min. Versions for enhanced piano in five-limit just intonation and equal tempered piano.",
-  },
-  {
-    title: "L'allegria",
-    year: "2002",
-    forces: "Baritone, violin, cello, and enhanced piano",
-    note: "35 min. Five movements. Commissioned by Thomas Buckner.",
+    heading: "Enhanced Piano And Ungaretti",
+    items: [
+      {
+        title: "Preludes for the Enhanced Piano",
+        year: "1970s",
+        forces: "Enhanced piano",
+        note: "Mattina in seven-limit just intonation; Dolce declina il sole in five-limit just intonation.",
+      },
+      {
+        title: "Giorno d'un uomo",
+        year: "1996",
+        forces: "Violin and enhanced piano in seven-limit just intonation",
+        note: "Part I of IV. Mattina. Commissioned by Daniel Kobialka.",
+      },
+      {
+        title: "Omaggio a Giuseppe Ungaretti",
+        year: "1997",
+        forces: "Piano",
+        note: "14 min. Versions for enhanced piano in five-limit just intonation and equal tempered piano.",
+      },
+      {
+        title: "L'allegria",
+        year: "2002",
+        forces: "Baritone, violin, cello, and enhanced piano",
+        note: "35 min. Five movements. Commissioned by Thomas Buckner.",
+      },
+    ],
   },
 ];
 
 const tracks = [
+  {
+    title: "1. Eterno",
+    meta: "6 Piano Preludes (Omaggio a Ungaretti)",
+    src: "media/prelude-01-eterno.mp3",
+  },
+  {
+    title: "2. In Memoria",
+    meta: "6 Piano Preludes (Omaggio a Ungaretti)",
+    src: "media/prelude-02-in-memoria.mp3",
+  },
+  {
+    title: "3. I fiume",
+    meta: "6 Piano Preludes (Omaggio a Ungaretti)",
+    src: "media/prelude-03-i-fiume.mp3",
+  },
+  {
+    title: "4. Veglia",
+    meta: "6 Piano Preludes (Omaggio a Ungaretti)",
+    src: "media/prelude-04-veglia.mp3",
+  },
+  {
+    title: "5. Mattina",
+    meta: "6 Piano Preludes (Omaggio a Ungaretti)",
+    src: "media/prelude-05-mattina.mp3",
+  },
+  {
+    title: "6. Omaggio",
+    meta: "6 Piano Preludes (Omaggio a Ungaretti)",
+    src: "media/prelude-06-omaggio.mp3",
+  },
   {
     title: "Rush - Omaggio Catalano GSVA",
     meta: "Omaggio audio",
@@ -159,48 +183,40 @@ const interviewTrack = {
   src: "media/loren-rush-barney-childs-interview-2016-audio-1.mp3",
 };
 
-const list = document.querySelector("[data-resource-list]");
 const worksList = document.querySelector("[data-works-list]");
 const audioList = document.querySelector("[data-audio-list]");
 const interviewAudio = document.querySelector("[data-interview-audio]");
 
-resources.forEach((resource, index) => {
-  const link = document.createElement("a");
-  link.className = "resource";
-  link.style.animationDelay = `${120 + index * 55}ms`;
-  link.href = resource.url;
-  link.target = resource.url.startsWith("http") ? "_blank" : "_self";
-  link.rel = resource.url.startsWith("http") ? "noreferrer" : "";
+workGroups.forEach((group) => {
+  const section = document.createElement("section");
+  section.className = "work-group";
+  section.innerHTML = `<h3 class="work-group__title">${group.heading}</h3>`;
 
-  link.innerHTML = `
-    <span>
-      <span class="resource__title">${resource.title}</span>
-      <span class="resource__note">${resource.note}</span>
-    </span>
-    <span class="resource__arrow" aria-hidden="true">-&gt;</span>
-  `;
+  group.items.forEach((work) => {
+    const item = document.createElement("article");
+    item.className = "work-item";
+    item.innerHTML = `
+      <time class="work-year">${work.year}</time>
+      <div>
+        <h4 class="work-title">${work.title}</h4>
+        <p class="work-forces">${work.forces}</p>
+        <p class="work-note">${work.note}</p>
+      </div>
+    `;
 
-  list.append(link);
+    section.append(item);
+  });
+
+  worksList.append(section);
 });
 
-works.forEach((work) => {
-  const item = document.createElement("article");
-  item.className = "work-item";
-  item.innerHTML = `
-    <time class="work-year">${work.year}</time>
-    <div>
-      <h3 class="work-title">${work.title}</h3>
-      <p class="work-forces">${work.forces}</p>
-      <p class="work-note">${work.note}</p>
-    </div>
-  `;
-
-  worksList.append(item);
-});
-
-const renderAudioPlayer = (track, container) => {
+const renderAudioPlayer = (track, container, options = {}) => {
   const player = document.createElement("article");
   player.className = "audio-player";
+  if (options.playlist) {
+    player.dataset.playlistPlayer = "true";
+  }
+
   player.innerHTML = `
     <button class="play-pause-button" type="button" aria-label="Play ${track.title}" data-track-title="${track.title}">&gt;</button>
     <div>
@@ -217,7 +233,7 @@ const renderAudioPlayer = (track, container) => {
   container.append(player);
 };
 
-tracks.forEach((track) => renderAudioPlayer(track, audioList));
+tracks.forEach((track) => renderAudioPlayer(track, audioList, { playlist: true }));
 renderAudioPlayer(interviewTrack, interviewAudio);
 
 const photo = document.querySelector("[data-photo]");
@@ -227,6 +243,7 @@ photo.addEventListener("error", () => {
 });
 
 const audioPlayers = [...document.querySelectorAll(".audio-player")];
+const playlistPlayers = [...document.querySelectorAll("[data-playlist-player]")];
 const playAllButton = document.querySelector(".play-all-button");
 
 const formatTime = (seconds) => {
@@ -251,9 +268,9 @@ const pauseOthers = (currentAudio) => {
 };
 
 const playAudioByIndex = (index) => {
-  if (index >= audioPlayers.length) return;
+  if (index >= playlistPlayers.length) return;
 
-  const player = audioPlayers[index];
+  const player = playlistPlayers[index];
   const audio = player.querySelector(".audio-element");
   const button = player.querySelector(".play-pause-button");
 
@@ -300,7 +317,10 @@ audioPlayers.forEach((player, index) => {
     audio.currentTime = 0;
     setButtonState(button, false);
     progress.style.width = "0";
-    playAudioByIndex(index + 1);
+
+    if (player.dataset.playlistPlayer) {
+      playAudioByIndex(playlistPlayers.indexOf(player) + 1);
+    }
   });
 
   progressBar.addEventListener("mousemove", (event) => {

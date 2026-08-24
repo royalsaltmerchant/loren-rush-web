@@ -6,7 +6,7 @@
     <title>Loren Lee Rush</title>
     <meta
       name="description"
-      content="A simple archive page for Loren Lee Rush with links to photographs, biography, works, scores, audio, and interviews."
+      content="Archive page for Loren Lee Rush with biography, works, audio, and interview materials."
     >
     <link rel="stylesheet" href="style.css">
   </head>
@@ -27,11 +27,19 @@
           <p class="kicker">Composer archive</p>
           <h1 id="page-title">Loren Lee Rush</h1>
           <p class="dates">August 23, 1935 - February 10, 2024</p>
-          <a class="drive-link" href="#listen">Listen</a>
+          <p class="hero__dek">
+            Composer, pianist, and pioneer in computer music and sound research.
+          </p>
+          <nav class="hero-nav" aria-label="Page sections">
+            <a href="#bio">Bio</a>
+            <a href="#works">Works</a>
+            <a href="#interview">Interview</a>
+            <a href="#listen">Listen</a>
+          </nav>
         </div>
       </section>
 
-      <section class="bio-section" aria-labelledby="bio-title">
+      <section class="bio-section" id="bio" aria-labelledby="bio-title">
         <div class="section-heading">
           <p class="kicker">Biography</p>
           <h2 id="bio-title">Loren Rush</h2>
@@ -99,7 +107,7 @@
         </div>
       </section>
 
-      <section class="works-section" aria-labelledby="works-title">
+      <section class="works-section" id="works" aria-labelledby="works-title">
         <div class="section-heading">
           <p class="kicker">Works</p>
           <h2 id="works-title">Compositions</h2>
@@ -113,7 +121,7 @@
         </div>
       </section>
 
-      <section class="interview-section" aria-labelledby="interview-title">
+      <section class="interview-section" id="interview" aria-labelledby="interview-title">
         <div class="section-heading">
           <p class="kicker">Interview</p>
           <h2 id="interview-title">Barney Childs</h2>
@@ -137,21 +145,22 @@
         </div>
         <div class="audio-panel">
           <div class="audio-panel__header">
-            <p>Selected recordings</p>
+            <p>Six Piano Preludes and selected recordings</p>
             <button class="play-all-button" type="button">Play all</button>
           </div>
           <div class="audio-list" data-audio-list></div>
         </div>
       </section>
-
-      <section class="resources" aria-labelledby="resources-title">
-        <div class="section-heading">
-          <p class="kicker">Archive</p>
-          <h2 id="resources-title">Documents</h2>
-        </div>
-        <div class="resource-list" data-resource-list></div>
-      </section>
     </main>
+
+    <footer class="site-footer">
+      <p>Loren Lee Rush archive</p>
+      <nav aria-label="Archive links">
+        <a href="documents/loren-bio-shere.pdf">Bio PDF</a>
+        <a href="documents/loren-works-list-annotated.pdf">Works PDF</a>
+        <a href="https://drive.google.com/drive/folders/192hnJQZ0KXqQuud_xw9EzDqHjtDPhfjj" target="_blank" rel="noreferrer">Drive archive</a>
+      </nav>
+    </footer>
 
     <script src="main.js"></script>
   </body>

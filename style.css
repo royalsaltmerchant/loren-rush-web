@@ -90,7 +90,9 @@ main {
 }
 
 h1,
-h2 {
+h2,
+h3,
+h4 {
   margin: 0;
   font-weight: 500;
   letter-spacing: 0;
@@ -108,26 +110,37 @@ h1 {
   font-size: clamp(1.1rem, 2vw, 1.45rem);
 }
 
-.drive-link {
-  display: inline-flex;
-  align-items: center;
-  min-height: 2.9rem;
-  margin-top: 2rem;
-  padding: 0 1.2rem;
-  border: 1px solid var(--accent);
-  border-radius: 999px;
-  color: var(--panel);
-  background: var(--accent);
-  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  font-size: 0.92rem;
-  font-weight: 700;
-  text-decoration: none;
-  transition: background 180ms ease, transform 180ms ease;
+.hero__dek {
+  max-width: 24rem;
+  margin: 1.2rem 0 0;
+  color: var(--ink);
+  font-size: clamp(1.15rem, 2vw, 1.55rem);
+  line-height: 1.25;
 }
 
-.drive-link:hover,
-.drive-link:focus-visible {
-  background: var(--accent-dark);
+.hero-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem 1rem;
+  margin-top: 2rem;
+}
+
+.hero-nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.45rem;
+  color: var(--accent);
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 0.86rem;
+  font-weight: 700;
+  text-underline-offset: 0.22em;
+  text-decoration: none;
+  transition: color 180ms ease, transform 180ms ease;
+}
+
+.hero-nav a:hover,
+.hero-nav a:focus-visible {
+  color: var(--accent-dark);
   outline: none;
   transform: translateY(-1px);
 }
@@ -135,6 +148,7 @@ h1 {
 .bio-section,
 .works-section,
 .interview-section {
+  scroll-margin-top: 2rem;
   display: grid;
   grid-template-columns: minmax(220px, 0.34fr) minmax(0, 1fr);
   gap: clamp(2rem, 5vw, 5rem);
@@ -211,6 +225,25 @@ h1 {
   border-top: 1px solid var(--line);
 }
 
+.work-group {
+  padding: 1.35rem 0 0;
+}
+
+.work-group + .work-group {
+  margin-top: 1.2rem;
+}
+
+.work-group__title {
+  margin-bottom: 0.3rem;
+  color: var(--accent);
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 0.86rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1.35;
+  text-transform: uppercase;
+}
+
 .work-item {
   display: grid;
   grid-template-columns: 7.25rem minmax(0, 1fr);
@@ -277,8 +310,8 @@ h1 {
   line-height: 1.08;
 }
 
-.resources,
 .audio-section {
+  scroll-margin-top: 2rem;
   display: grid;
   grid-template-columns: minmax(220px, 0.34fr) minmax(0, 1fr);
   gap: clamp(2rem, 5vw, 5rem);
@@ -300,81 +333,6 @@ h1 {
 h2 {
   font-size: clamp(1.8rem, 3.2vw, 3rem);
   line-height: 1.02;
-}
-
-.resource-list {
-  border-top: 1px solid var(--line);
-}
-
-.resource {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 1.5rem;
-  align-items: center;
-  min-height: 92px;
-  padding: 1.15rem 0;
-  border-bottom: 1px solid var(--line);
-  color: inherit;
-  text-decoration: none;
-  transform: translateY(10px);
-  opacity: 0;
-  animation: riseIn 560ms ease-out forwards;
-  transition: color 180ms ease, padding-left 180ms ease, background 180ms ease;
-}
-
-.resource:hover,
-.resource:focus-visible {
-  color: var(--accent);
-  padding-left: 0.75rem;
-  outline: none;
-}
-
-.resource__title {
-  display: block;
-  font-size: clamp(1.25rem, 2.3vw, 2rem);
-  line-height: 1.08;
-}
-
-.resource__note {
-  display: block;
-  margin-top: 0.35rem;
-  color: var(--muted);
-  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  font-size: 0.9rem;
-  line-height: 1.4;
-}
-
-.resource__arrow {
-  width: 2.8rem;
-  height: 2.8rem;
-  border: 1px solid currentColor;
-  border-radius: 999px;
-  display: grid;
-  place-items: center;
-  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  font-size: 1.4rem;
-  transition: transform 180ms ease, background 180ms ease, color 180ms ease;
-}
-
-.resource:hover .resource__arrow,
-.resource:focus-visible .resource__arrow {
-  transform: translateX(4px);
-  background: var(--accent);
-  color: var(--panel);
-}
-
-.resource.is-placeholder {
-  cursor: default;
-}
-
-.resource.is-placeholder:hover,
-.resource.is-placeholder:focus-visible {
-  color: inherit;
-  padding-left: 0;
-}
-
-.resource.is-placeholder .resource__arrow {
-  color: var(--muted);
 }
 
 .audio-panel {
@@ -503,6 +461,37 @@ h2 {
   text-underline-offset: 0.18em;
 }
 
+.site-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 1.4rem clamp(1.25rem, 4vw, 3rem) 2rem;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 0.86rem;
+}
+
+.site-footer p {
+  margin: 0;
+}
+
+.site-footer nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.8rem 1.2rem;
+}
+
+.site-footer a {
+  color: var(--accent);
+  font-weight: 700;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+
 @keyframes riseIn {
   from {
     opacity: 0;
@@ -547,7 +536,6 @@ h2 {
   .bio-section,
   .works-section,
   .interview-section,
-  .resources,
   .audio-section {
     grid-template-columns: 1fr;
     gap: 1.4rem;
@@ -555,16 +543,6 @@ h2 {
 
   .section-heading {
     position: static;
-  }
-
-  .resource {
-    grid-template-columns: 1fr 2.4rem;
-    min-height: 84px;
-  }
-
-  .resource__arrow {
-    width: 2.4rem;
-    height: 2.4rem;
   }
 
   .works-panel__header {
@@ -581,6 +559,10 @@ h2 {
     gap: 0.25rem;
   }
 
+  .work-group + .work-group {
+    margin-top: 1.6rem;
+  }
+
   .audio-player {
     grid-template-columns: 2.7rem minmax(0, 1fr);
   }
@@ -593,5 +575,14 @@ h2 {
 
   .interview-media {
     grid-template-columns: 1fr;
+  }
+
+  .site-footer {
+    display: block;
+  }
+
+  .site-footer nav {
+    justify-content: flex-start;
+    margin-top: 0.75rem;
   }
 }
