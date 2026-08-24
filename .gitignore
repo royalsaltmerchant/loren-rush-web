@@ -1,1 +1,4 @@
 drive-downloads/
+
+# Local Netlify folder
+.netlify
