@@ -186,6 +186,38 @@ h1 {
   text-underline-offset: 0.18em;
 }
 
+.portrait-strip {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(240px, 0.75fr);
+  gap: clamp(1rem, 3vw, 1.6rem);
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 clamp(1.25rem, 4vw, 3rem) clamp(2.5rem, 6vw, 5rem);
+}
+
+.portrait-strip__item {
+  margin: 0;
+}
+
+.portrait-strip__item img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  filter: saturate(0.82) contrast(1.03);
+}
+
+.portrait-strip__item--wide img {
+  aspect-ratio: 16 / 9;
+}
+
+.portrait-strip figcaption {
+  margin-top: 0.55rem;
+  color: var(--muted);
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 0.82rem;
+}
+
 .interview-section {
   padding-top: 0;
 }
@@ -543,6 +575,15 @@ h2 {
 
   .section-heading {
     position: static;
+  }
+
+  .portrait-strip {
+    grid-template-columns: 1fr;
+    padding-bottom: 2.6rem;
+  }
+
+  .portrait-strip__item--wide img {
+    aspect-ratio: 4 / 3;
   }
 
   .works-panel__header {
