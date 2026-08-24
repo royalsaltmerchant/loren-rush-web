@@ -132,17 +132,81 @@ h1 {
   transform: translateY(-1px);
 }
 
-.intro {
+.bio-section,
+.interview-section {
+  display: grid;
+  grid-template-columns: minmax(190px, 0.32fr) minmax(0, 1fr);
+  gap: clamp(2rem, 5vw, 5rem);
   max-width: 1120px;
   margin: 0 auto;
   padding: clamp(2rem, 6vw, 5.5rem) clamp(1.25rem, 4vw, 3rem);
 }
 
-.intro p {
-  max-width: 760px;
+.bio-copy {
+  border-top: 1px solid var(--line);
+  padding-top: 1.1rem;
+}
+
+.bio-copy p {
+  max-width: 780px;
+  margin: 0 0 1.2rem;
+  font-size: clamp(1.1rem, 1.7vw, 1.35rem);
+  line-height: 1.48;
+}
+
+.bio-copy p:first-child {
+  font-size: clamp(1.45rem, 2.7vw, 2.35rem);
+  line-height: 1.16;
+}
+
+.bio-credit {
+  color: var(--muted);
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 0.92rem !important;
+}
+
+.bio-credit a {
+  color: var(--accent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+
+.interview-section {
+  padding-top: 0;
+}
+
+.interview-media {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.42fr) minmax(0, 1fr);
+  gap: clamp(1.4rem, 4vw, 3rem);
+  align-items: end;
+  border-top: 1px solid var(--line);
+  padding-top: 1.1rem;
+}
+
+.interview-media img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.interview-copy p {
+  max-width: 520px;
   margin: 0;
-  font-size: clamp(1.7rem, 4vw, 3.35rem);
+  font-size: clamp(1.6rem, 3vw, 2.7rem);
   line-height: 1.08;
+}
+
+.drive-link--secondary {
+  margin-top: 1.5rem;
+  color: var(--accent);
+  background: transparent;
+}
+
+.drive-link--secondary:hover,
+.drive-link--secondary:focus-visible {
+  color: var(--panel);
 }
 
 .resources,
@@ -403,6 +467,8 @@ h2 {
     font-size: clamp(4.1rem, 18vw, 6.5rem);
   }
 
+  .bio-section,
+  .interview-section,
   .resources,
   .audio-section {
     grid-template-columns: 1fr;
@@ -431,5 +497,9 @@ h2 {
     grid-column: 2;
     min-width: 0;
     text-align: left;
+  }
+
+  .interview-media {
+    grid-template-columns: 1fr;
   }
 }

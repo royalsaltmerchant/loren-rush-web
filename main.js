@@ -3,16 +3,6 @@ const driveFolderUrl =
 
 const resources = [
   {
-    title: "Photo",
-    note: "Loren at the piano.",
-    url: "assets/loren-at-upright.jpeg",
-  },
-  {
-    title: "Bio",
-    note: "Biography by Charles Shere.",
-    url: "documents/loren-bio-shere.pdf",
-  },
-  {
     title: "Works list",
     note: "Catalog of compositions and related materials.",
     url: "documents/loren-works-list-annotated.pdf",
@@ -23,14 +13,9 @@ const resources = [
     url: "https://drive.google.com/drive/folders/12_ePLcTM1rlTlV5JaenJdQy_sdFNafSS",
   },
   {
-    title: "Orchestra pieces",
-    note: "Recordings are playable below; score PDFs can be added when available.",
+    title: "Orchestra scores",
+    note: "Score PDFs can be added here when available.",
     url: "https://drive.google.com/drive/folders/1Fl2UlSuWMVozsqJ-XD139zBENuUQoOxP",
-  },
-  {
-    title: "Interview with Barney Childs",
-    note: "Audio is playable below, with related image material.",
-    url: "https://drive.google.com/drive/folders/17OHc0Mq3A7zzs7oq0wLQw5h9fyytc6ca",
   },
   {
     title: "Full Drive folder",
