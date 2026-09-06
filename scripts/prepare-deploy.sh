@@ -9,6 +9,7 @@ mkdir -p "$OUT_DIR"
 
 cp -R \
   "$ROOT_DIR/index.html" \
+  "$ROOT_DIR/favicon.ico" \
   "$ROOT_DIR/style.css" \
   "$ROOT_DIR/main.js" \
   "$ROOT_DIR/netlify.toml" \

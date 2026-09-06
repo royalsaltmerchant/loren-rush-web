@@ -160,20 +160,44 @@ const tracks = [
     meta: "Omaggio audio",
     src: "media/rush-omaggio-catalano-gsva.mp3",
   },
+];
+
+const featuredWorks = [
   {
-    title: "Dans le sable",
-    meta: "Orchestra recording",
-    src: "media/dans-le-sable.mp3",
+    title: "Dans le Sable",
+    year: "1967-68",
+    forces: "Soprano, speaker, four altos, and chamber orchestra",
+    note: "Orchestral version, 1970.",
+    pdfPage: 9,
+    audio: {
+      title: "Dans le Sable",
+      meta: "Performance audio",
+      src: "media/dans-le-sable.mp3",
+    },
   },
   {
-    title: "Song and Dance (DePriest)",
-    meta: "Orchestra recording",
-    src: "media/song-and-dance-depriest.mp3",
+    title: "Cloud Messenger",
+    year: "1966-71",
+    forces: "Orchestra",
+    note: "18 min.",
+    pdfPage: 14,
+    audio: {
+      title: "Cloud Messenger",
+      meta: "Performance audio",
+      src: "media/the-cloud-messenger.mp3",
+    },
   },
   {
-    title: "The Cloud Messenger",
-    meta: "Orchestra recording",
-    src: "media/the-cloud-messenger.mp3",
+    title: "Song and Dance",
+    year: "1975",
+    forces: "Amplified orchestra with computer-generated four-channel audio playback",
+    note: "Commissioned by Seiji Ozawa and the San Francisco Symphony Orchestra. DePriest performance.",
+    pdfPage: 21,
+    audio: {
+      title: "Song and Dance (DePriest)",
+      meta: "Performance audio",
+      src: "media/song-and-dance-depriest.mp3",
+    },
   },
 ];
 
@@ -184,6 +208,7 @@ const interviewTrack = {
 };
 
 const worksList = document.querySelector("[data-works-list]");
+const featuredList = document.querySelector("[data-featured-list]");
 const audioList = document.querySelector("[data-audio-list]");
 const interviewAudio = document.querySelector("[data-interview-audio]");
 
@@ -236,6 +261,28 @@ const renderAudioPlayer = (track, container, options = {}) => {
 
   container.append(player);
 };
+
+featuredWorks.forEach((work) => {
+  const item = document.createElement("article");
+  item.className = "featured-work";
+  item.innerHTML = `
+    <div class="featured-work__copy">
+      <time class="work-year">${work.year}</time>
+      <h3 class="featured-work__title">${work.title}</h3>
+      <p class="work-forces">${work.forces}</p>
+      <p class="work-note">${work.note}</p>
+      <p class="score-note">
+        <a href="documents/loren-works-list-annotated.pdf#page=${work.pdfPage}">Open PDF page</a>
+      </p>
+    </div>
+    <div class="featured-work__audio"></div>
+  `;
+
+  renderAudioPlayer(work.audio, item.querySelector(".featured-work__audio"), {
+    download: false,
+  });
+  featuredList.append(item);
+});
 
 tracks.forEach((track) => renderAudioPlayer(track, audioList, { playlist: true }));
 renderAudioPlayer(interviewTrack, interviewAudio, { download: false });

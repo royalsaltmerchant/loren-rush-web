@@ -8,6 +8,7 @@
       name="description"
       content="Archive page for Loren Lee Rush with biography, works, audio, and interview materials."
     >
+    <link rel="icon" href="favicon.ico" sizes="any">
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
@@ -28,14 +29,28 @@
           <h1 id="page-title">Loren Lee Rush</h1>
           <p class="dates">August 23, 1935 - February 10, 2024</p>
           <p class="hero__dek">
-            Composer, pianist, and pioneer in computer music and sound research.
+            Composer, pianist, and pioneer in computer music and audio research.
           </p>
           <nav class="hero-nav" aria-label="Page sections">
+            <a href="#featured">Scores</a>
             <a href="#bio">Bio</a>
             <a href="#works">Works</a>
             <a href="#interview">Interview</a>
             <a href="#listen">Listen</a>
           </nav>
+        </div>
+      </section>
+
+      <section class="featured-section" id="featured" aria-labelledby="featured-title">
+        <div class="section-heading">
+          <p class="kicker">Featured scores</p>
+          <h2 id="featured-title">Orchestra Works</h2>
+        </div>
+        <div class="featured-panel">
+          <p class="featured-intro">
+            Selected orchestral works with available performances.
+          </p>
+          <div class="featured-list" data-featured-list></div>
         </div>
       </section>
 
@@ -157,10 +172,20 @@
 
       <section class="audio-section" id="listen" aria-labelledby="audio-title">
         <div class="section-heading">
-          <p class="kicker">Audio</p>
-          <h2 id="audio-title">Listen</h2>
+          <p class="kicker">More Music</p>
+          <h2 id="audio-title">Selected recordings</h2>
         </div>
         <div class="audio-panel">
+          <figure class="omaggio-cover">
+            <img
+              src="assets/omaggio-cd-cover.jpg"
+              alt="CD cover for Loren Rush, Omaggio a Giuseppe Ungaretti"
+            >
+            <figcaption>
+              <strong>Omaggio a Giuseppe Ungaretti</strong>
+              <span>Loren Rush, piano; Matthew Edwards, piano; Stephen Harrison, cello; Susan Freier, violin.</span>
+            </figcaption>
+          </figure>
           <div class="audio-panel__header">
             <p>Six Piano Preludes and selected recordings</p>
             <button class="play-all-button" type="button">Play all</button>
