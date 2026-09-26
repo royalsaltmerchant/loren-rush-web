@@ -168,7 +168,7 @@ const featuredWorks = [
     year: "1967-68",
     forces: "Soprano, speaker, four altos, and chamber orchestra",
     note: "Orchestral version, 1970.",
-    pdfPage: 9,
+    score: "documents/dans-le-sable-score.pdf",
     audio: {
       title: "Dans le Sable",
       meta: "Performance audio",
@@ -180,7 +180,7 @@ const featuredWorks = [
     year: "1966-71",
     forces: "Orchestra",
     note: "18 min.",
-    pdfPage: 14,
+    score: "documents/cloud-messenger-score.pdf",
     audio: {
       title: "Cloud Messenger",
       meta: "Performance audio",
@@ -192,7 +192,7 @@ const featuredWorks = [
     year: "1975",
     forces: "Amplified orchestra with computer-generated four-channel audio playback",
     note: "Commissioned by Seiji Ozawa and the San Francisco Symphony Orchestra. DePriest performance.",
-    pdfPage: 21,
+    score: "documents/song-and-dance-score.pdf",
     audio: {
       title: "Song and Dance (DePriest)",
       meta: "Performance audio",
@@ -272,7 +272,7 @@ featuredWorks.forEach((work) => {
       <p class="work-forces">${work.forces}</p>
       <p class="work-note">${work.note}</p>
       <p class="score-note">
-        <a href="documents/loren-works-list-annotated.pdf#page=${work.pdfPage}">Open PDF page</a>
+        <a href="${work.score}">Open full score (PDF)</a>
       </p>
     </div>
     <div class="featured-work__audio"></div>
